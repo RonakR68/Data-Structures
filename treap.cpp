@@ -1,3 +1,4 @@
+#pragma GCC optimize("O3")
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -174,7 +175,7 @@ template <typename T> class Treap{
         Node *node1 = nullptr;
         Node *node2 = nullptr;
         //split treap with node1(<val) and node2(>=val) as roots based on lowerbound index
-        //cout<<"splitIndex is: "<<indexToSplit<<endl;
+        //cout<<"splitIndex is: "<<indexToSplit<<"\n";
         split(root, node1, node2, indexToSplit, 0);
         //insert new node in treap 1
         merge(node1, node1, newNode);
@@ -333,12 +334,15 @@ template <typename T> class Treap{
         vector<T> ans;
         inorder(ans,root);
         int n = ans.size();
-        //cout<<n<<endl;
+        //cout<<n<<"\n";
         return ans;
     }
 };
 
 int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
     Treap<int> treap;
     int choice;
     int index, first, last;
@@ -349,13 +353,13 @@ int main(){
         if(choice == 1){
         // Empty
         if(treap.empty())
-            cout << "true" << endl;
+            cout << "true" << "\n";
         else
-            cout << "false" << endl;
+            cout << "false" << "\n";
         }
         else if(choice == 2){
             // Size
-            cout << treap.size() << endl;
+            cout << treap.size() << "\n";
         }
         else if(choice == 3){
             // Clear
@@ -364,22 +368,22 @@ int main(){
         else if(choice == 4){
             // Insert
             cin >> val;
-            cout << treap.insert(val) << endl;
+            cout << treap.insert(val) << "\n";
         }
         else if(choice == 5){
             // Erase
             cin >> index;
-            cout << (treap.erase(index) ? "true" : "false") << endl;
+            cout << (treap.erase(index) ? "true" : "false") << "\n";
         }
         else if(choice == 6){
             // IndexOf
             cin >> val;
-            cout << treap.indexOf(val) << endl;
+            cout << treap.indexOf(val) << "\n";
         }
         else if(choice == 7){
             // AtIndex
             cin >> index;
-            cout << treap.atIndex(index) << endl;
+            cout << treap.atIndex(index) << "\n";
         }
         else if(choice == 8){
             // Merge
@@ -398,7 +402,7 @@ int main(){
         else if (choice == 10){
             // Erase (Range)
             cin >> first >> last;
-            cout << (treap.erase(first, last) ? "true" : "false") << endl;
+            cout << (treap.erase(first, last) ? "true" : "false") << "\n";
         }
         else if (choice == 11){
             // Slice
@@ -414,17 +418,17 @@ int main(){
         else if(choice == 12){
             // Lower Bound
             cin >> val;
-            cout << treap.lower_bound(val) << endl;
+            cout << treap.lower_bound(val) << "\n";
         }
         else if(choice == 13){
             // Upper Bound
             cin >> val;
-            cout << treap.upper_bound(val) << endl;
+            cout << treap.upper_bound(val) << "\n";
         }
         else if(choice == 14){
             // Count
             cin >> val;
-            cout << treap.count(val) << endl;
+            cout << treap.count(val) << "\n";
         }
         else if(choice == 15){
             // To Array
@@ -435,7 +439,7 @@ int main(){
                     cout << ' ';
                 }
             }
-            cout << endl;
+            cout << "\n";
         }
         else if(choice == 0){
             if(treap2 != nullptr){
